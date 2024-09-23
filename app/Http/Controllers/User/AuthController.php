@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
@@ -42,7 +42,6 @@ class AuthController extends BaseController
             $success = [
                 'id' => $user->id,
                 'user_name' => $user->user_name,
-                'password' => $user->password,
                 'token' => $token,
             ];
             return $this->sendResponse($success, 'User logged in successfully');
