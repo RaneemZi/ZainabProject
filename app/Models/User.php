@@ -24,6 +24,15 @@ class User extends Authenticatable
         'age',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
+
+    public function favoritePosts()
+    {
+        return $this->belongsToMany(Post::class, 'favorite_posts');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
