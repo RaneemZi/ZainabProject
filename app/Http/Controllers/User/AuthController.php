@@ -50,6 +50,19 @@ class AuthController extends BaseController
         }
     }
 
+    public function userInfo(){
+
+        $userId = Auth::user()->id;
+        $user = User::findOrFail($userId);
+
+        $success = [
+            'user_name' => $user->user_name,
+            'age' => $user->age,
+            'email' => $user->email,
+        ];
+        return $this->sendResponse($success, 'User Information retrieved successfully');
+    }
+
     public function logout()
     {
         Auth::user()->currentAccessToken()->delete();
